@@ -7,8 +7,6 @@
   <%= @activity.user_id %>
 
 <%= button_to "Home", "/", method: :get %>
-
-<%= button_to "Edit Activity", edit_activity_path(@activity.id), method: :get %>
 <% else %>
 <%= button_to "Log In", new_user_session_path, class: "login-button" %>
 

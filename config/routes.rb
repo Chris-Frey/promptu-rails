@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "/user/:id", to: "user#show"
   get "/activities", to: "activities#index"
   get "/activities/new", to: "activities#new"
-  get "/activity/:id", to: "activity#show"
+  get "/activities/:id", to: "activity#show"
+  get "/activities/:id/edit", to: "activity#edit"
 
   # Defines the root path route ("/")
 

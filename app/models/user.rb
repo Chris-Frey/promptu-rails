@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :activities, through: :user_activities
 
 
-  # validates :name, presence: true, length: {minimum: 6}
+  # validates :name, presence: true#, length: {minimum: 6}
   # validates :email, :username, presence: true
 end
