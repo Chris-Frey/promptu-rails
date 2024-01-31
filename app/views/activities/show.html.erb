@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+<h1>Activity</h1>
+
+
+  <%= @activity.name %>
+  <%= @activity.description %>
+  <%= @activity.creator_id %>
+
+<%= button_to "Home", "/", method: :get %>
+<% else %>
+<%= button_to "Log In", new_user_session_path, class: "login-button" %>
+
+
+<% end %>

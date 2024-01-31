@@ -1,0 +1,10 @@
+h2 {
+  justify-self: center;
+}
+
+.login-button {
+  border: none;
+  width: 7rem;
+  height: 2rem;
+  border: none;
+}
