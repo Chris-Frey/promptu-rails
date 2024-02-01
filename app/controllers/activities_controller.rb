@@ -37,6 +37,12 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity = Activity.delete(params[:id])
+
+    if @activity
+      redirect_to "/activities/"
+    else
+      render :delete, status: :unprocessable_entity
+    end
   end
 
   private

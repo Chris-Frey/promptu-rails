@@ -3,15 +3,15 @@
 
 <div class="new-body">
 
-<%= form_with model: @activity do |form| %>
-  Activity Name
-  <%= form.text_field :name %>
-  <br>
-  <%= form.text_area :description, size: "60x5" %>
-  <br>
-  <%= form.submit class: "submit-button"%>
-<% end %>
-<%= button_to "Home", "/", method: :get %>
+  <%= form_with model: @activity do |form| %>
+    Activity Name
+    <%= form.text_field :name %>
+    <br>
+    <%= form.text_area :description, size: "60x5" %>
+    <br>
+    <%= form.submit class: "submit-button"%>
+  <% end %>
+  <%= button_to "Home", "/", method: :get %>
 
 
 

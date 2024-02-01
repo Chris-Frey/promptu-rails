@@ -4,11 +4,12 @@
 
   <%= @activity.name %>
   <%= @activity.description %>
-  <%= @activity.user_id %>
+  <br>
+  <%= @activity.id %>
 
 <%= button_to "Home", "/", method: :get %>
 
-<%= button_to "Edit Activity", edit_activity_path(@activity.id), method: :get %>
+<%= button_to "Edit Activity", edit_activity_url(@activity), method: :get %>
 <% else %>
 <%= button_to "Log In", new_user_session_path, class: "login-button" %>
 
