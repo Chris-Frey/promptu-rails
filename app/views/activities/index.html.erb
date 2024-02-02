@@ -6,7 +6,8 @@
   <h2>Activities in the next 30 minutes</h2>
 
     <% @activities.each do |activity| %>
-      <%= link_to activity.id, show_activity_path(activity.id) %>
+
+        <%= link_to activity.id, show_activity_path(activity.id) %>
       <%# <%= activity.description %>
       <%# <%= activity.start_time %>
     <% end %>

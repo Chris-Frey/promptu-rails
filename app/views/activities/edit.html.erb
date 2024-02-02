@@ -14,13 +14,16 @@
     <br>
     <%= form.text_area :description, size: "60x5" %>
     <br>
+    Start Date<%= form.date_select :start_time %>
+    Start Time<%= form.time_select :start_time %>
+    <br>
     <%= form.submit class: "submit-button"%>
     <%= button_to "Cancel Editing", show_activity_path(@activity.id), method: :get %>
 
   <% end %>
 
 
-    <%= button_to "Delete Activity", show_activity_path(@activity.id), method: :delete %>
+    <%= button_to "Delete Activity", show_activity_path(@activity.id), method: :delete, turbo_confirm: "are you sure?" %>
     <%= button_to "Home", "/", method: :get %>
   <% else %>
     <%= button_to "Log In", new_user_session_path, class: "login-button" %>

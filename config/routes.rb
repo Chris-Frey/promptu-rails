@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "activities#index"
 
   resources :activities
-  resource :user
+  resources :user
 
   get "/user/:id", to: "user#show"
 

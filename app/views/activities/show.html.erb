@@ -1,12 +1,29 @@
 <% if user_signed_in? %>
 <h1>Activity</h1>
 
-
+  Activity
   <%= @activity.name %>
+  <br>
+    Description
   <%= @activity.description %>
   <br>
-  <%= @activity.id %>
+  Activity Date
+  <%= @activity.start_time.strftime("%b %d") %>
+  <br>
 
+  Start Time
+  <%= @activity.start_time.strftime("%H:%M") %>
+  <br>
+  Current Time
+  <%= Time.now.strftime("%H:%M") %>
+
+
+  <br>
+  <%= @activity.id %>
+  <br>
+
+
+<%= button_to "Sign up!", "/", method: :post %>
 <%= button_to "Home", "/", method: :get %>
 
 <%= button_to "Edit Activity", edit_activity_url(@activity), method: :get %>
