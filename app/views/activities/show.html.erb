@@ -1,12 +1,37 @@
 <% if user_signed_in? %>
 <h1>Activity</h1>
 
-
+  Activity:
   <%= @activity.name %>
+  <br>
+    Description:
   <%= @activity.description %>
   <br>
-  <%= @activity.id %>
+  Activity Date:
+  <%= @activity.start_time.strftime("%b %d") %>
+  <br>
 
+  Start Time:
+  <%= @activity.start_time.strftime("%H:%M") %>
+  <br>
+
+  Starts in:
+  <%= distance_of_time_in_words(Time.now.strftime("%H:%M"), @activity.start_time.strftime("%H:%M")) %>
+  <br>
+
+  Activity ID:
+  <%= @activity.id %>
+  <br>
+
+  Activity Host:
+  <%= User.find(@activity.user_id).name %>
+  <br>
+
+  Attendees:
+  <%= User.find(@activity.user_id).name %>
+  <br>
+
+<%= button_to "Sign up!", "/", method: :post %>
 <%= button_to "Home", "/", method: :get %>
 
 <%= button_to "Edit Activity", edit_activity_url(@activity), method: :get %>
