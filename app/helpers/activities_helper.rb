@@ -16,4 +16,9 @@ module ActivitiesHelper
     "/activities/#{activity_id}/edit"
   end
 
+  def attend_activity(activity)
+    activity.update(attended_by: current_user.id)
+    show_activity_path(activity.id)
+  end
+
 end

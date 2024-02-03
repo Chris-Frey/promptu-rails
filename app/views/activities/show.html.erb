@@ -28,10 +28,12 @@
   <br>
 
   Attendees:
-  <%= User.find(@activity.user_id).name %>
+  <% if @activity.attended_by %>
+  <%= User.find(@activity.attended_by).name %>
+  <% end %>
   <br>
 
-<%= button_to "Sign up!", "/", method: :post %>
+<%= button_to "Sign up!", attend_activity(@activity), method: :put %>
 <%= button_to "Home", "/", method: :get %>
 
 <%= button_to "Edit Activity", edit_activity_url(@activity), method: :get %>
