@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @activities = Activity.all
   end
@@ -12,10 +13,14 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
-
+    @activity = Activity.new(activity_params.merge(user_id: current_user.id))
     if @activity.save
-      redirect_to @activity
+      user_activity = UserActivity.new(user: current_user, activity: @activity)
+      if user_activity.save
+        redirect_to @activity
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -47,8 +52,8 @@ class ActivitiesController < ApplicationController
 
   private
     def activity_params
-      params.require(:activity).permit(:name, :description, :user_id, :start_time )
-      # , :location, :attended_by, )
+      params.require(:activity).permit(:name, :description, :user_id, :attended_by, :start_time )
+      # , :location, , )
     end
 end
 
