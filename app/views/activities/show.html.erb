@@ -32,8 +32,13 @@
   <%= User.find(@activity.attended_by).name %>
   <% end %>
   <br>
+  <% if @activity.attended_by != current_user.id %>
+    <%= button_to "don't attend", attend_activity(@activity), method: :patch %>
+  <%else%>
+  <% @activity.attended_by == current_user.id %>
+    <%= button_to "sign up", do_not_attend(@activity), method: :patch %>
+  <%end%>
 
-<%= button_to "Sign up!", attend_activity(@activity), method: :put %>
 <%= button_to "Home", "/", method: :get %>
 
 <%= button_to "Edit Activity", edit_activity_url(@activity), method: :get %>

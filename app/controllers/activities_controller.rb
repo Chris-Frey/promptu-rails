@@ -41,9 +41,9 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @activity = Activity.delete(params[:id])
+    @activity = Activity.find(params[:id])
 
-    if @activity
+    if @activity.user_activities.destroy_all && @activity.destroy
       redirect_to "/activities/"
     else
       render :delete, status: :unprocessable_entity
@@ -53,7 +53,6 @@ class ActivitiesController < ApplicationController
   private
     def activity_params
       params.require(:activity).permit(:name, :description, :user_id, :attended_by, :start_time )
-      # , :location, , )
     end
 end
 

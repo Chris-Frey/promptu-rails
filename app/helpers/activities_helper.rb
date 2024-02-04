@@ -18,7 +18,12 @@ module ActivitiesHelper
 
   def attend_activity(activity)
     activity.update(attended_by: current_user.id)
-    show_activity_path(activity.id)
+    "/activities/#{activity.id}"
+  end
+
+  def do_not_attend(activity)
+    activity.update(attended_by: nil)
+    "/activities/#{activity.id}"
   end
 
 end
