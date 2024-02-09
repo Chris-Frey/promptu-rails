@@ -4,24 +4,23 @@
   <h1>Activities</h1>
 
   <h2>Activities in the next 30 minutes</h2>
-
+    <div class="all-cards">
     <% @activities.each do |activity| %>
-
-        <%= link_to activity.id, show_activity_path(activity.id) %>
-      <%# <%= activity.description %>
-      <%# <%= activity.start_time %>
+      <div class="card">
+          <%= render partial: "activity_card", locals: { activity: activity }%>
+       </div>
     <% end %>
-
+</div>
   <h2>Activities in the next 1 hour</h2>
   <h2>Activities in the next 2 hours</h2>
   <h2>Activities in the next 4 hours</h2>
-
+  <div class='button-group'>
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
   <%= button_to "Profile", user_show_path(current_user.id), method: :get %>
   <%= button_to "Create Activity", new_activity_path, method: :get %>
   <% else %>
   <%= button_to "Log In", new_user_session_path, class: "login-button" %>
-
+  </div>
 
 <% end %>
 </div>

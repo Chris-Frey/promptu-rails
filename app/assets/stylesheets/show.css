@@ -1,0 +1,29 @@
+
+.show-user-body {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+.show-user-body button {
+  background-color: var(--primary-color);
+}
+
+.show-user-body .email {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.show-user-body .email-label {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.show-user-body .activity-label {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.show-user-body ul {
+  margin: 0;
+}

@@ -1,14 +1,33 @@
-
+<div class='show-user-body' >
   <h1>Profile</h1>
-  <h2> <%= current_user.name %> </h2>
-  <h2> <%= current_user.username %> </h2>
-  <h2> <%= current_user.email %> </h2>
   <h2> <%= current_user.id %> </h2>
-  <% me = current_user.id %>
-  <h2> <% Activity.all.each do |activity| %> </h2>
-        <ul>
-          <li class="activity_list"><%= activity.name if activity.user_id === current_user.id %></li>
-        </ul>
-      <% end %>
+
+  <h3 class='name'>  <%= current_user.name %> </h3>
+  <h2 class='username'> <%= current_user.username %> </h2>
+  <h2 class='email-label'>Email: </h2>
+  <p class='email'> <%= current_user.email %> </p>
+
+
+  <h2 class='activity-label'>Activities You're Attending: </h2>
+    <ul>
+    <% Activity.all.each do |activity| %>
+      <% if activity.attended_by == current_user.id %>
+        <li class="activity-attend-list"> <%= link_to activity.name, show_activity_path(activity.id), method: :get %> </li>
+        <%else%>
+          <%next%>
+      <%end%>
+    <% end %>
+  </ul>
+  <h2 class='activity-label'>Hosted Activities</h2>
+  <ul>
+    <% Activity.all.each do |activity| %>
+      <% if activity.user_id == current_user.id %>
+        <li class="activity-host-list"> <%= link_to activity.name, show_activity_path(activity.id), method: :get %> </li>
+        <%else%>
+          <%next%>
+      <%end%>
+    <% end %>
+  </ul>
   <br>
   <%= button_to "Home", activities_path, method: :get %>
+</div>

@@ -1,3 +1,29 @@
+.index-body {
+  background-color: var(--background-color);
+}
+
 .index-body button {
   background-color: var(--primary-color);
+
+}
+
+.card {
+  position: relative;
+  margin-left: 1rem;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 10px;
+  box-shadow:  5px 5px 10px #147a7a,
+             -5px -5px 10px #1aa6a6;
+}
+
+.all-cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.button-group {
+  max-width: 20rem;
+  display: flex;
+  justify-content: space-between;
 }
