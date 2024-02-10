@@ -6,6 +6,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
       t.datetime :start_time
       t.integer :length
       t.string :location
+      t.integer :user_id
 
       t.timestamps
     end
